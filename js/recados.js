@@ -33,11 +33,11 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
       let inputDescricao = document.getElementById("inputDescricao").value;
       let inputDetalhamento = document.getElementById("inputDetalhamento").value;
 
-      axios.post(`http://localhost:3000/users/${usuarioLogadoFormatados}/recados`, {
+      axios.post(`https://thiago-recados-b.herokuapp.com/users/${usuarioLogadoFormatados}/recados`, {
       descricao: inputDescricao,
       detalhe: inputDetalhamento
       }).then(retorno => {
-        axios.get('http://localhost:3000/users')
+        axios.get('https://thiago-recados-b.herokuapp.com/users')
       .then(resposta => {
           localStorage.setItem("ListaDeUsuarios", JSON.stringify(resposta.data.users));
           location.reload();
@@ -60,9 +60,9 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
          }
        }
 
-      axios.delete(`http://localhost:3000/users/${idUsuario}/recados/${idRecado}`)
+      axios.delete(`https://thiago-recados-b.herokuapp.com/users/${idUsuario}/recados/${idRecado}`)
       .then(retorno => {
-        axios.get('http://localhost:3000/users')
+        axios.get('https://thiago-recados-b.herokuapp.com/users')
       .then(resposta => {
         
           localStorage.setItem("ListaDeUsuarios", JSON.stringify(resposta.data.users));
@@ -99,11 +99,11 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
     let recado = localStorage.getItem("modalIdRecado");
     let recadoFormatadoId = JSON.parse(recado);
 
-    axios.put(`http://localhost:3000/users/${usuarioFormatadoId}/recados/${recadoFormatadoId}`, {
+    axios.put(`https://thiago-recados-b.herokuapp.com/users/${usuarioFormatadoId}/recados/${recadoFormatadoId}`, {
       descricao: document.getElementById("inputDescricaoModal").value,
       detalhe: document.getElementById("inputDetalhamentoModal").value
     }).then(retorno => {
-        axios.get('http://localhost:3000/users')
+        axios.get('https://thiago-recados-b.herokuapp.com/users')
         .then(resposta => {
         localStorage.setItem("ListaDeUsuarios", JSON.stringify(resposta.data.users));
         location.reload();

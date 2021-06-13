@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  axios.get('http://localhost:3000/users')
+  axios.get('https://thiago-recados-b.herokuapp.com/users')
       .then(resposta => {
           localStorage.setItem("ListaDeUsuarios", JSON.stringify(resposta.data.users));
       });
@@ -20,7 +20,7 @@ function acesso() {
     if (usuario.email === email && usuario.senha == password) {
       logado = true;
       usuarioLogado = usuario;
-      window.location.href = "http://127.0.0.1:5501/paginaDeRecados.html";
+      window.location.href = "./paginaDeRecados.html";
     }
     localStorage.setItem("UsuarioLogado", JSON.stringify(usuarioLogado.userId));
   }
@@ -49,7 +49,7 @@ function acesso() {
      return alert("Senhas devem ser idênticas");
    }
    
-   axios.post(`http://localhost:3000/users`, {
+   axios.post(`https://thiago-recados-b.herokuapp.com/users`, {
         email: email,
         senha: password
     }).then(retorno => {
