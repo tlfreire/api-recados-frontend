@@ -1,0 +1,17 @@
+body {
+  background-color: #beb6dd;
+}
+
+.container {
+  background-color: #beb6dd;
+  height: 100vh;
+}
+
+#titulo {
+  margin-top: 50px;
+}
+
+#dados-salvar {
+  height: 15vh;
+  margin-top: 15px;
+}

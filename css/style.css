@@ -1,0 +1,65 @@
+body {
+  background-color: #beb6dd;
+}
+
+.container {
+  background-color: #beb6dd;
+  height: 100vh;
+}
+
+#imagem-pagina-inicial {
+  padding-top: 20%;
+  width: 100%;
+}
+
+#formulario {
+  width: 100%;
+  margin-top: 55vh;
+}
+
+#entrar {
+  text-align: center;
+  margin-bottom: 15px;
+  transform: translateX(-5%);
+}
+
+#botao-entrar {
+  padding: 4px;
+  margin-top: 15px;
+  width: 91%;
+}
+
+.form-group {
+  position: relative;
+}
+
+#email {
+  margin: 0;
+  padding: 10px;
+  width: 45%;
+}
+
+#password {
+  margin: 0;
+  padding: 10px;
+  width: 45%;
+}
+
+#botao-criar-conta {
+  text-align: center;
+  transform: translateX(-5%);
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+#botao-criar-conta-agora {
+  margin-top: 3px;
+  display: none;
+}
+
+#repeat-password {
+  display: none;
+  margin: 0;
+  padding: 10px;
+  width: 330px;
+}
