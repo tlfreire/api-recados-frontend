@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
-  axios.get('https://thiago-recados-b.herokuapp.com/users')
+  axios.get('http://localhost:3000/user')
       .then(resposta => {
-          localStorage.setItem("ListaDeUsuarios", JSON.stringify(resposta.data.users));
+          localStorage.setItem("ListaDeUsuarios", JSON.stringify(resposta.data));
       });
   });
 
@@ -20,9 +20,10 @@ function acesso() {
     if (usuario.email === email && usuario.senha == password) {
       logado = true;
       usuarioLogado = usuario;
+    localStorage.setItem("UsuarioLogado", JSON.stringify(usuarioLogado));
       window.location.href = "./paginaDeRecados.html";
     }
-    localStorage.setItem("UsuarioLogado", JSON.stringify(usuarioLogado.userId));
+    
   }
   if (logado === false) {
     alert("Dados inválidos. Digite novamente ou crie sua conta.");
@@ -48,13 +49,11 @@ function acesso() {
    if (password != repeatPassword) {
      return alert("Senhas devem ser idênticas");
    }
-   
-   axios.post(`https://thiago-recados-b.herokuapp.com/users`, {
+   axios.post(`http://localhost:3000/user`, {
         email: email,
         senha: password
     }).then(retorno => {
-      localStorage.setItem("ListaDeUsuarios", JSON.stringify(listaDeUsuarios));
-        
+      localStorage.setItem("ListaDeUsuarios", JSON.stringify(retorno.data));
       })
-   location.reload();
+    location.reload();
  }
