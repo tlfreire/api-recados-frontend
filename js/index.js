@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  axios.get('http://localhost:3000/user')
+  axios.get('https://thiago-recados-b-novo.herokuapp.com/user')
       .then(resposta => {
           localStorage.setItem("ListaDeUsuarios", JSON.stringify(resposta.data));
       });
@@ -49,7 +49,7 @@ function acesso() {
    if (password != repeatPassword) {
      return alert("Senhas devem ser idênticas");
    }
-   axios.post(`http://localhost:3000/user`, {
+   axios.post(`https://thiago-recados-b-novo.herokuapp.com/user`, {
         email: email,
         senha: password
     }).then(retorno => {

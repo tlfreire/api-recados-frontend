@@ -1,6 +1,6 @@
 
 window.addEventListener('load', () => {
-  axios.get('http://localhost:3000/recados')
+  axios.get('https://thiago-recados-b-novo.herokuapp.com/recados')
       .then(resposta => {
           localStorage.setItem("ListaRecados", JSON.stringify(resposta.data));
 
@@ -44,7 +44,7 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
       let inputDescricao = document.getElementById("inputDescricao").value;
       let inputDetalhamento = document.getElementById("inputDetalhamento").value;
 
-        axios.post(`http://localhost:3000/user/${usuarioLogadoFormatados.id}/recados`, {
+        axios.post(`https://thiago-recados-b-novo.herokuapp.com/user/${usuarioLogadoFormatados.id}/recados`, {
           descricao: inputDescricao,
           detalhe: inputDetalhamento
        }).then(resposta => {
@@ -60,7 +60,7 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
    
     function apagarRecado(idRecado) {
 
-       axios.delete(`http://localhost:3000/recados/${idRecado}`)
+       axios.delete(`https://thiago-recados-b-novo.herokuapp.com/recados/${idRecado}`)
        .then(resposta => {
       
            alert("recado apagado")
@@ -85,11 +85,11 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
 
     function editarRecado() {
       const idRecado = localStorage.getItem("IdRecado")
-     axios.put(`http://localhost:3000/recados/${idRecado}`, {
+     axios.put(`https://thiago-recados-b-novo.herokuapp.com/recados/${idRecado}`, {
        descricao: document.getElementById("inputDescricaoModal").value,
        detalhe: document.getElementById("inputDetalhamentoModal").value
      }).then(retorno => {
-         axios.get('http://localhost:3000/recados')
+         axios.get('https://thiago-recados-b-novo.herokuapp.com/recados')
          .then(resposta => {
          localStorage.setItem("ListaRecados", JSON.stringify(resposta.data));
          location.reload();
