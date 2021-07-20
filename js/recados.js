@@ -47,14 +47,15 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
         axios.post(`https://thiago-recados-b-novo.herokuapp.com/user/${usuarioLogadoFormatados.id}/recados`, {
           descricao: inputDescricao,
           detalhe: inputDetalhamento
-       }).then(resposta => {
-          localStorage.setItem("ListaRecados", JSON.stringify(resposta.data));
-          }).then(resposta => {
-            location.reload();
-           ImprimirDados()
+       }).then(retorno => {
+        axios.get('https://thiago-recados-b-novo.herokuapp.com/recados')
+        .then(resposta => {
+        localStorage.setItem("ListaRecados", JSON.stringify(resposta.data));
+        location.reload();
+        ImprimirDados()
         });
-        
-   }
+      });
+  }
 
    
    
