@@ -49,11 +49,10 @@ let usuarioLogadoFormatados = JSON.parse(usuarioLogadoLS);
           detalhe: inputDetalhamento
        }).then(resposta => {
          localStorage.setItem("ListaRecados", JSON.stringify(resposta.data))
-         
-         }).then()
          axios.get('https://thiago-recados-b-novo.herokuapp.com/recados')
          location.reload();
-         ImprimirDados();
+         ImprimirDados()
+         });
    }
 
    
